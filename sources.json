@@ -1,4 +1,10 @@
 {
+  "google_news_queries": [
+    { "name": "AI 新闻", "q": "人工智能 OR AI 大模型", "tag": "行业新闻" },
+    { "name": "LLM/Agent", "q": "LLM OR agent OR 智能体", "tag": "行业新闻" },
+    { "name": "算力/芯片", "q": "GPU OR NVIDIA OR 算力 OR 芯片 AND AI", "tag": "产业动态" },
+    { "name": "政策/监管", "q": "AI 监管 OR 人工智能 法规 OR policy AND AI", "tag": "政策" }
+  ],
   "feeds": [
     { "name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml", "tag": "官方动态" },
     { "name": "DeepMind Blog", "url": "https://deepmind.google/discover/blog/rss.xml", "tag": "官方动态" },
@@ -6,9 +12,6 @@
     { "name": "Meta AI", "url": "https://ai.meta.com/blog/rss/", "tag": "官方动态" },
 
     { "name": "arXiv cs.AI", "url": "https://export.arxiv.org/rss/cs.AI", "tag": "研究突破" },
-    { "name": "arXiv cs.LG", "url": "https://export.arxiv.org/rss/cs.LG", "tag": "研究突破" },
-
-    { "name": "MIT Technology Review AI", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/", "tag": "行业新闻" },
-    { "name": "The Verge AI", "url": "https://www.theverge.com/artificial-intelligence/rss/index.xml", "tag": "行业新闻" }
+    { "name": "arXiv cs.LG", "url": "https://export.arxiv.org/rss/cs.LG", "tag": "研究突破" }
   ]
 }
