@@ -8,16 +8,17 @@ on:
 jobs:
   send:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Debug workspace
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show workspace (debug)
         run: |
-          echo "PWD=$(pwd)"
           echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+          cd "$GITHUB_WORKSPACE"
+          pwd
           ls -la
-          echo "---- find ----"
-          find . -maxdepth 2 -type f -print
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,7 +27,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r ./requirements.txt
+          cd "$GITHUB_WORKSPACE"
+          pip install -r "$GITHUB_WORKSPACE/requirements.txt"
 
       - name: Run digest and send email
         env:
@@ -34,4 +36,5 @@ jobs:
           QQ_SMTP_AUTH_CODE: ${{ secrets.QQ_SMTP_AUTH_CODE }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
         run: |
-          python ./daily_ai_digest.py
+          cd "$GITHUB_WORKSPACE"
+          python "$GITHUB_WORKSPACE/daily_ai_digest.py"
